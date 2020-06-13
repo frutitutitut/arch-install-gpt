@@ -26,7 +26,6 @@ mount /dev/nvme0n1p4 /mnt/home
 echo '3.1 Отсортируем зеркала'
 pacman -Sy --noconfirm reflector
 reflector --verbose -l 5 -p https --sort rate --save /etc/pacman.d/mirrorlist
-pacman -Syyu --noconfirm
 
 echo '3.2 Установка основных пакетов'
 pacstrap /mnt base base-devel linux linux-headers linux-firmware nano dhcpcd netctl
