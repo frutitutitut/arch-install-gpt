@@ -10,18 +10,18 @@ echo 'Ваша разметка диска'
 fdisk -l
 
 echo '2.4.2 Форматирование дисков'
-mkfs.fat -F32 /dev/sda1
-mkswap /dev/sda2
-mkfs.ext4 /dev/sda3
-mkfs.ext4 /dev/sda4
+mkfs.fat -F32 /dev/nvme0n1p1
+mkswap /dev/nvme0n1p2
+mkfs.ext4 /dev/nvme0n1p3
+mkfs.ext4 /dev/nvme0n1p4
 
 echo '2.4.3 Монтирование дисков'
-swapon /dev/sda2
-mount /dev/sda3 /mnt
+swapon /dev/nvme0n1p2
+mount /dev/nvme0n1p3 /mnt
 mkdir /mnt/{boot,home}
 mkdir /mnt/boot/EFI
-mount /dev/sda1 /mnt/boot/EFI
-mount /dev/sda4 /mnt/home
+mount /dev/nvme0n1p1 /mnt/boot/EFI
+mount /dev/nvme0n1p4 /mnt/home
 
 echo '3.1 Отсортируем зеркала'
 pacman -Sy --noconfirm reflector
