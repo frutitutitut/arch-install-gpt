@@ -29,7 +29,7 @@ reflector --verbose -l 5 -p https --sort rate --save /etc/pacman.d/mirrorlist
 pacman -Syyu --noconfirm
 
 echo '3.2 Установка основных пакетов'
-pacstrap /mnt base base-devel linux-zen linux-zen-headers linux-firmware nano dhcpcd netctl
+pacstrap /mnt base base-devel linux linux-headers linux-firmware nano dhcpcd netctl
 
 echo '3.3 Настройка системы'
 genfstab -pU /mnt >> /mnt/etc/fstab

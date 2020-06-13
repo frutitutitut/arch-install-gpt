@@ -21,11 +21,11 @@ echo 'KEYMAP=ru' >> /etc/vconsole.conf
 echo 'FONT=cyr-sun16' >> /etc/vconsole.conf
 
 echo 'Создадим загрузочный RAM диск'
-mkinitcpio -p linux-zen
+mkinitcpio -p linux
 
 echo '3.5 Устанавливаем загрузчик'
-pacman -Syy
-pacman -S efibootmgr --noconfirm
+pacman -Syy 
+pacman -S efibootmgr grub --noconfirm
 grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=grub
 
 echo 'Обновляем grub.cfg'
